@@ -97,6 +97,8 @@ h1{
   
   input{
 padding: 6px,12px,6px,12;
+margin: auto;
+
   }
   
   /* Style the quiz answers */
