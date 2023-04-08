@@ -10,34 +10,57 @@
         WHEN the game is over
         THEN I can save my initials and score - local storage necessary*/
 
-var jsQuestions = [  "What is the difference between null and undefined in JavaScript?",  "What is the difference between == and === in JavaScript?",  "What is a closure in JavaScript?",  "What is hoisting in JavaScript?",  "What are the different types of scope in JavaScript?",  "What are the different types of data types in JavaScript?",  "What is the difference between let and var in JavaScript?",  "What is the difference between const and let in JavaScript?",  "What is the difference between synchronous and asynchronous programming in JavaScript?",  "What is an event loop in JavaScript?"];
-var jsAnswers= []
+var questDisplay = document.getElementById("quest");
+console.log(questDisplay);
+
+var questARR=[0,1,2,3];
+console.log(questARR);
+
+// select a random question from the array
+var selectedQuestion = questARR[Math.floor(Math.random() * questARR.length)];
+console.log(selectedQuestion);
+
+ // function needed to display the question in html page
+
+var choices = [0,1,2,3];
+console.log(choices)
+choice[0]="choice 1";
+choice[1]="choice 2";
+choice[2]="choice 3";
+choice[3]="choice 4";
 
 
-function startQuiz() {
-        var timeLeft = 10; // number of seconds for the countdown
-        var questionArray = ["Question 1", "Question 2", "Question 3"]; // array of questions
-        var selectedQuestion = questionArray[Math.floor(Math.random() * questionArray.length)]; // select a random question from the array
-        
-        // Display the selected question
-        console.log("Question: " + selectedQuestion);
-      
-        // Start the countdown timer
-        var countdown = setInterval(function() {
-          if (timeLeft <= 0) {
-            clearInterval(countdown);
-            console.log("Time's up!");
-          } else {
-            console.log(timeLeft + " seconds left");
-          }
-          timeLeft -= 1;
-        }, 1000);
-      }
-      
-      // Add event listener to the start button
-      document.getElementById("start").addEventListener("click", startQuiz);
-      // Stopping the timer:
-        stop.addEventListener('click', function() {
-	clearInterval(timerId);
-});
-      
+
+
+var button = document.getElementsByTagName('button');
+console.log(button);
+
+var start = document.getElementById('begin');
+console.log(start);
+
+var response = document.getElementById("choice");
+console.log(response)
+
+
+function selectAnswer(){
+  console.log("it worked")
+};
+
+
+  /*var startTimer = setInterval(function() {
+    if (timeLeft <= 0) {
+      clearInterval(countdown);
+      console.log("Time's up!");
+    } else {
+      console.log(timeLeft + " seconds left");
+    }
+    timeLeft -= 1;
+  }, 1000);
+console.log(startTimer)*/
+
+// function needed to tally up correct answers
+// function needed to display score to field
+// function needed for local storage of highschool
+//function needed to randomize question order
+
+
