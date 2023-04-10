@@ -14,31 +14,34 @@
         <h2>
             <p id="score"> Current Score:</p>
             <p id="highscore"> High Scores: </p>
+            <div id="timer">  </div>
                 </h2>
-        <h3>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
-         <button type="start" id="begin" onclick="startCountdown()">Start Quiz </button> 
-            
-            <p id="time"></p>
-        </h3>
+                
+       
         
-        <div id="quiz">
-           <p id="quest"> Question! </p>
-        <br>
-        <p>What is an input event?</p>
-        <select answer="answers">
-            <option value="Click">Click</option>
-            <option value="smash">smash</option>
-            <option value="cry">Cry</option>
-            <option value="human-sacrifice">human sacrifice</option>
-        </select>
-            
-            <button id="choice0"  value="choice0" onclick="selectAnswer()"> Answer one </button>
-            <button id="choice1"  value="choice1" onclick="selectAnswer()"> Answer two </button>
-            <button id="choice2"  value="choice2" onclick="selectAnswer()"> Answer three </button>
-            <button id="choice3"  value="choice3" onclick="selectAnswer()"> Answer four </button>
-            <p id="selected">Choose an answer times ticking!</p>
+        <div class ="quiz-box" id="quiz">
+           <h2 id="question">question</h2>
+           <ul>
+            <li>
+           <input type="radio" name="answer" id="a" class="answer">
+           <label for="a" id="ansA">Answer</label>
+            </li>
+            <li>
+                <input type="radio" name="answer" id="b" class="answer">
+                <label for="b" id="ansB">Answer</label>
+                 </li>
+                 <li>
+                    <input type="radio" name="answer" id="c" class="answer">
+                    <label for="c" id="ansC">Answer</label>
+                     </li>
+                     <li>
+                        <input type="radio" name="answer" id="d" class="answer">
+                        <label for="d" id="ansD">Answer</label>
+                         </li>
+        </ul>
+        <button id="submit">Submit!</button>
         </div>
-
+         
         
         <div id="answer">
             <p id="message"></p>
@@ -46,13 +49,7 @@
             <p id="incorrect"></p>
         </div>
         
-        
-        <!--<div id="userscore">
-            <p id="score"> Current Score</p>
-            <p class="highscore"> High Scores
-            </p>
-        </div>-->
-
+    
 
         
         
