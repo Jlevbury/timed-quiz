@@ -77,29 +77,45 @@ var quizData=[
       }
       
       function getSelected() {
-        var answer = undefined;
-        answerEls.forEach(answerEl => {
-          if(answerEl.checked) {
+        var answer = null;
+        answerEls.forEach(function(answerEl) {
+          if (answerEl.checked) {
             answer = answerEl.id;
           }
         });
         return answer;
       }
       
-      submitBtn.addEventListener('click', () => {
-        var answer = getSelected();
-        if(answer) {
-          if (answer === quizData[currentQuiz].correct) {
+     function endQuiz() {
+        var scoreEl = document.getElementById('score');
+        scoreEl.innerHTML= ' ${score} out of ${quizData.length}';
+        quiz.innerHTML = ` Time's up! <button onclick="location.reload()">Reload</button>
+  `;
+}
+var timeLeft = 10;
+var timerId;
+
+function resetTimer() {
+        clearInterval(timerId);
+        timeLeft = 10; // add this line to reset the timer
+        var timeSpan = document.getElementById("time-left");
+        timeSpan.innerHTML = timeLeft;
+      }
+
+
+      submitBtn.addEventListener('click', function() {
+        var selectedAnswer = getSelected();
+        if (selectedAnswer) {
+          if (selectedAnswer === quizData[currentQuiz].correct) {
             score++;
+          } else {
+            totalTime -= 10; // deduct 10 seconds for a wrong answer
           }
           currentQuiz++;
-          if(currentQuiz < quizData.length) {
+          if (currentQuiz < quizData.length) {
             startQuiz();
           } else {
-            quiz.innerHTML = `
-              <h2> ${score}/${quizData.length} correct this time!</h2>
-              <button onclick="location.reload()">Reload</button>
-            `;
+            endQuiz();
           }
         }
       });
