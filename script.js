@@ -88,7 +88,7 @@ var quizData=[
       
      function endQuiz() {
         var scoreEl = document.getElementById('score');
-        scoreEl.innerHTML= ' ${score} out of ${quizData.length}';
+        scoreEl.innerHTML= `You scored ${score} out of ${quizData.length}.`;
         quiz.innerHTML = ` Time's up! <button onclick="location.reload()">Reload</button>
   `;
 }
@@ -102,8 +102,22 @@ function resetTimer() {
         timeSpan.innerHTML = timeLeft;
       }
 
+// get the high score from local storage or set it to 0 if it doesn't exist
+var highScore = localStorage.getItem("highScore") || 0;
 
-      submitBtn.addEventListener('click', function() {
+// check if the user's score is higher than the current high score
+if (score > highScore) {
+  // update the high score and store it in local storage
+  highScore = score;
+  localStorage.setItem("highScore", highScore);
+}
+
+// display the high score to the user
+var highScoreSpan = document.getElementById("highscore");
+highScoreSpan.innerHTML = score;
+
+
+submitBtn.addEventListener('click', function() {
         var selectedAnswer = getSelected();
         if (selectedAnswer) {
           if (selectedAnswer === quizData[currentQuiz].correct) {
