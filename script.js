@@ -110,47 +110,48 @@ function resetTimer() {
 // get the high score from local storage or set it to 0 if it doesn't exist
 var highScore = localStorage.getItem("highScore") || 0;
 
-  // check if the user's score is higher than the current high score
-  var highScoreData = JSON.parse(localStorage.getItem("highScoreData")) || [];
-  var highScore = 0;
-  highScoreData.forEach(function(data) {
-    if (data.score > highScore) {
-      highScore = data.score;
-    }
-  });
-  if (score > highScore) {
-    // add the new high score to the highScoreData array
-    highScoreData.push({initials: initials, score: score});
-    // store the highScoreData in local storage
-    localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
-  }
-
+   // check if the user's score is higher than the current high score
+   var highScoreData = JSON.parse(localStorage.getItem("highScoreData")) || [];
+   var highScore = 0;
+   highScoreData.forEach(function(data) {
+     if (data.score > highScore) {
+       highScore = data.score;
+     }
+   });
+   if (score > highScore) {
+     // add the new high score to the highScoreData array
+     highScoreData.push({initials: initials, score: score});
+     // store the highScoreData in local storage
+     localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
+   }
   // display the high scores
   var highScoreEl = document.getElementById("highScore");
-  highScoreEl.innerHTML = "";
+  highScoreEl.innerHTML ="highscore";
   highScoreData.forEach(function(data) {
     var scoreEl = document.createElement("p");
     scoreEl.innerHTML = `${data.initials}: ${data.score}`;
     highScoreEl.appendChild(scoreEl);
   });
+}
 
 
-  submitBtn.addEventListener('click', function() {
-    console.log('click');
-    var selectedAnswer = getSelected();
-    if (selectedAnswer) {
-      if (selectedAnswer === quizData[currentQuiz].correct) {
-        score++;
-      } else {
-        totalTime -= 10; // deduct 10 seconds for a wrong answer
-      }
-      updateScore(); // display the updated score
-      
-      currentQuiz++;
-      if (currentQuiz < quizData.length) {
-        startQuiz();
-      } else {
-        endQuiz();
-      }
+submitBtn.addEventListener('click', function() {
+  console.log('click');
+  var selectedAnswer = getSelected();
+  if (selectedAnswer) {
+    if (selectedAnswer === quizData[currentQuiz].correct) {
+      score++;
+    } else {
+      totalTime -= 10; // deduct 10 seconds for a wrong answer
     }
-  })};
+    //updateScore(); // display the updated score
+      
+    currentQuiz++;
+    if (currentQuiz < quizData.length) {
+      startQuiz();
+    } else {
+      endQuiz();
+    }
+  }
+  
+});
