@@ -108,7 +108,7 @@ function resetTimer() {
       }
 
 // get the high score from local storage or set it to 0 if it doesn't exist
-var highScore = localStorage.getItem("highScore") || 0;
+var highScore = localStorage.getItem("highscore") || 0;
 
    // check if the user's score is higher than the current high score
    var highScoreData = JSON.parse(localStorage.getItem("highScoreData")) || [];
@@ -125,12 +125,12 @@ var highScore = localStorage.getItem("highScore") || 0;
      localStorage.setItem("highScoreData", JSON.stringify(highScoreData));
    }
   // display the high scores
-  var highScoreEl = document.getElementById("highScore");
-  highScoreEl.innerHTML ="";
+  var highScoreEl = document.getElementById("highscore");
+  highScoreEl.innerHTML ="Highscore";
   highScoreData.forEach(function(data) {
     var scoreEl = document.createElement("div");
     scoreEl.innerHTML = `${data.initials}: ${data.score}`;
-    highScoreEl.appendChild(highScoreEl);
+    highScoreEl.appendChild(scoreEl);
   });
 }
 
