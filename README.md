@@ -1,5 +1,5 @@
 # JavaScript Quiz
-https://jlevbury.github.io/
+https://jlevbury.github.io/timed-quiz/
 
 ## Description
 This weeks challenge was to build from scratch, a timed quiz about JavaScript, using what we have learned so far in Bootcamp about JavaScript. This quiz has a timer that responds to the answer inputs of the user, penalizing 10 seconds of time for a wrong answer. Upon completion of the quiz, the users score is displayed and a user highscore is stored to local storage and displayed for previous attempts. 
